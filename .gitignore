@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Data, trained models and results are not part of the repository (see DATA.md and README.md)
+/data/
+/runs/
+/runs_*/
+/reports/
+/logs/
+*.npz
+*.npy
+*.pkl
+*.pt
+*.ckpt
+*.safetensors
+*.parquet
+*.csv.gz
+*.zip
+*.tar.gz
+
+# Secrets and local settings
+.env
+*.key
+.claude/settings.local.json

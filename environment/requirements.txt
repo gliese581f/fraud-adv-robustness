@@ -1,0 +1,39 @@
+# Direct dependencies at the versions of the published results; environment/requirements-lock.txt pins every
+# transitive package too. Python 3.13. Annoy (pulled by ivis) may need: pip install --use-pep517 annoy==1.17.3
+# core
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1
+scikit-learn==1.9.1
+joblib==1.6.0
+PyYAML==6.0.3
+matplotlib==3.11.2
+statsmodels==0.15.0
+# models
+torch==2.15.0
+xgboost==3.4.1
+catboost==1.2.10
+optuna==5.0.0
+SQLAlchemy==2.1.8
+tensorflow_cpu==2.21.0
+tf_keras==2.21.0
+keras==3.15.1
+ivis==2.0.11
+annoy==1.17.3
+h5py==3.14.0
+protobuf==7.36.1
+# attacks
+adversarial-robustness-toolbox==1.20.1
+highspy==1.15.1
+# foundation models (encoder weights download from the Hugging Face hub on first use, about 1.4 GB)
+chronos-forecasting==2.3.2
+timesfm==3.0.2
+transformers==5.22.2
+accelerate==1.15.0
+einops==0.8.2
+huggingface_hub==2.4.0
+safetensors==0.8.0
+tokenizers==0.23.3
+# attack views
+umap-learn==0.6.0
+pynndescent==0.7.0

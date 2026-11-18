@@ -1,0 +1,33 @@
+[project]
+name = "fraudadv"
+version = "1.0.0"
+description = "Adversarial robustness benchmark of fraud detection models: threat-model projection, tree-ensemble attacks, history injection, bring-your-own-model evaluation"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.11"  # results produced with 3.13.18; exact pins in environment/requirements-lock.txt
+dependencies = [
+  "numpy>=2.0", "pandas>=2.2", "scipy>=1.14", "scikit-learn>=1.5", "joblib", "pyyaml>=6", "matplotlib>=3.9",
+  "xgboost>=2.1", "catboost>=1.2", "torch>=2.4", "optuna>=4.0", "adversarial-robustness-toolbox>=1.18",
+  "statsmodels>=0.14",
+]
+
+[project.optional-dependencies]
+ivis = ["ivis>=2.0", "tensorflow-cpu>=2.16", "tf-keras>=2.16"]
+foundation = ["chronos-forecasting>=2.0", "timesfm>=2.0", "transformers>=4.40", "accelerate", "einops"]
+views = ["umap-learn>=0.5"]
+dev = ["pytest>=8", "ruff>=0.4"]
+
+[project.scripts]
+fraudadv-byom = "fraudadv.byom:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
