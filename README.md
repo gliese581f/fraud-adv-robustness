@@ -16,9 +16,9 @@ notebooks/              Jupyter notebooks that run the analysis interactively an
 src/fraudadv/           the library
   paths.py              where everything is read and written (data/, runs/, runs_consistent/, reports/, logs/)
   data/                 raw files -> features (out-of-time splits, past-only history features), loading
-  models/               model families: zoo.py (XGBoost, CatBoost, MLP, FT-Transformer, ivis), graph.py (HGNN,
-                        HGT), foundation.py (Chronos-2, TimesFM), foundation_adapt.py (LoRA, zero-shot),
-                        ivis_variants.py
+  models/               model families: zoo.py (XGBoost, CatBoost, MLP, FT-Transformer, ivis: the Triplet NN),
+                        graph.py (HGNN, HGT), foundation.py (Chronos-2, TimesFM), foundation_adapt.py (LoRA,
+                        zero-shot), ivis_variants.py
   hpo/                  hyperparameter search and training (train_all: tabular; train_context: graph and
                         foundation models; topup*: second tuning passes)
   attacks/              the three threat models (constraints.py: unconstrained, constrained, consistent; the

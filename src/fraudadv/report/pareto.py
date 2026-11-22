@@ -80,7 +80,7 @@ def points(extra=()):
 def label(r):
     """Short point label, e.g. "XGBoost + adv. boosting" or "Chronos-2 LoRA"."""
     base, var = ADAPT.get(r["model"], (r["model"], None))
-    s = FAM_NAME[base].replace("Graph Transformer (HGT)", "HGT").replace("ivis (triplet)", "ivis")
+    s = FAM_NAME[base].replace("Graph Transformer (HGT)", "HGT")
     if var:
         s += f" {var}"
     if r["defense"] != "none":
@@ -196,7 +196,7 @@ def _legend_handles(P):
          for c in classes]
     h += [Line2D([], [], marker="o", ls="", markerfacecolor="white", markeredgecolor=MUTED, ms=5, label="defended (RQ5)")]
     h += [Line2D([], [], marker=m, ls="", color=MUTED, markeredgecolor="white", ms=5, label=t) for m, t in
-          (("o", "XGBoost, MLP, Hetero GNN, Chronos-2"), ("s", "CatBoost, FT-Transformer, HGT, TimesFM"), ("^", "ivis"))]
+          (("o", "XGBoost, MLP, Hetero GNN, Chronos-2"), ("s", "CatBoost, FT-Transformer, HGT, TimesFM"), ("^", "Triplet NN"))]
     variants = {ADAPT[m][1] for m in P.model if m in ADAPT}
     if "LoRA" in variants:
         h += [Line2D([], [], marker="D", ls="", color=CLASS_COLOR["Foundation (frozen)"], markeredgecolor="white", ms=5, label="foundation, LoRA")]

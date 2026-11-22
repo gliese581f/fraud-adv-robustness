@@ -4,6 +4,9 @@ This file maps each table, figure and quoted number of the study (main text and 
 produces it and to the CSV or figure it is in. Numbers such as "Table III" or "Table S-XI" follow the current
 version of the study.
 
+The model the study calls the **Triplet NN** is the family `ivis` in the code (module, file, folder and flag names,
+such as `--families ivis` and `runs_ivisvar/`); tables and figures print it as "Triplet NN".
+
 Each result goes through two stages:
 
 1. **Run.** A command attacks, trains or analyses models, and writes raw outputs under `runs/<dataset>/`,

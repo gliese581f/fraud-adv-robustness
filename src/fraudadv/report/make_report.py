@@ -51,7 +51,7 @@ RUNS, REP = ROOT / "runs", ROOT / "reports"
 DS = ["ulb", "ieee_cis", "sparkov", "tabformer", "paysim", "baf"]
 DS_NAME = {"ulb": "ULB", "ieee_cis": "IEEE-CIS", "sparkov": "Sparkov", "tabformer": "TabFormer", "paysim": "PaySim", "baf": "BAF"}
 FAM = ["xgboost", "catboost", "mlp", "ft_transformer", "ivis", "hgnn", "hgt", "chronos2", "timesfm"]
-FAM_NAME = {"xgboost": "XGBoost", "catboost": "CatBoost", "mlp": "MLP", "ft_transformer": "FT-Transformer", "ivis": "ivis (triplet)",
+FAM_NAME = {"xgboost": "XGBoost", "catboost": "CatBoost", "mlp": "MLP", "ft_transformer": "FT-Transformer", "ivis": "Triplet NN",
             "hgnn": "Hetero GNN", "hgt": "Graph Transformer (HGT)", "chronos2": "Chronos-2", "timesfm": "TimesFM 2.5"}
 FAM_CLASS = {"xgboost": "Tree ensemble", "catboost": "Tree ensemble", "mlp": "Deep tabular", "ft_transformer": "Deep tabular",
              "ivis": "Deep tabular", "hgnn": "Graph", "hgt": "Graph", "chronos2": "Foundation (frozen)", "timesfm": "Foundation (frozen)"}
@@ -159,7 +159,7 @@ def table_robust(A: pd.DataFrame, eps=(0.1, 0.25, 0.5)):
 def table_attacks():
     """Catalog of the attacks (knowledge, norm, query budget, models, reference): reports/table3_attacks.md."""
     rows = [
-        ("APGD (L∞, step-size schedule, momentum, random restarts)", "White-box, gradients", "L∞", "100 iterations x 5 restarts (FMs 20 x 2)", "MLP, FT-Transformer, ivis, graph, FMs", "Croce & Hein 2020"),
+        ("APGD (L∞, step-size schedule, momentum, random restarts)", "White-box, gradients", "L∞", "100 iterations x 5 restarts (FMs 20 x 2)", "MLP, FT-Transformer, Triplet NN, graph, FMs", "Croce & Hein 2020"),
         ("AATS (axis-aligned threshold search, this work)", "White-box, tree structure", "L∞ (minimal)", "≈10³–10⁴ model calls", "XGBoost, CatBoost", "this work"),
         ("AATS + exact MILP inside the AATS radius (discrete-domain extension, this work)", "White-box, tree structure", "L∞ (exact minimal where solved)", "10 s/example, 20 min/model", "XGBoost, CatBoost", "Kantchelian et al. 2016"),
         ("Square Attack", "Score-based black-box", "L∞", "300 queries", "all", "Andriushchenko et al. 2020"),
