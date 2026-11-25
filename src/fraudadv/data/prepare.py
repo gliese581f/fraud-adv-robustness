@@ -192,7 +192,9 @@ def tabformer(years=(2015, 2019)) -> Spec:
     df["amount"] = df["Amount"].str.replace("$", "", regex=False).astype("float32")
     df.drop(columns=["Amount"], inplace=True)
     hm = df["Time"].str.split(":", expand=True).astype("int16")
-    df["time"] = (pd.to_datetime(dict(year=df.Year, month=df.Month, day=df.Day)).astype("int64") // 10**9
+    # seconds since the epoch, explicitly: pandas 3 returns datetime64[us] here, so astype("int64") // 10**9 gave
+    # kiloseconds and scrambled the timeline (fixed 2026-11-25)
+    df["time"] = (pd.to_datetime(dict(year=df.Year, month=df.Month, day=df.Day)).astype("datetime64[s]").astype("int64")
                   + hm[0].astype("int64") * 3600 + hm[1].astype("int64") * 60)
     df["hour"] = hm[0]
     del hm
